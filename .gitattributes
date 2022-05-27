@@ -11,4 +11,6 @@
 .6B.100d filter=lfs diff=lfs merge=lfs -text
 .6B.100d.txt filter=lfs diff=lfs merge=lfs -text
 .txt filter=lfs diff=lfs merge=lfs -text
+/frontend/glove.6B.100d.txt filter=lfs diff=lfs merge=lfs -text
+frontend/glove.6B.100d.txt filter=lfs diff=lfs merge=lfs -text
 *.txt filter=lfs diff=lfs merge=lfs -text
