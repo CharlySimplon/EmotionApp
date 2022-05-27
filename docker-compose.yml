@@ -1,0 +1,39 @@
+networks:
+  AIservice:
+
+services:
+  frontend:
+    build: frontend
+    ports:
+      - 8501:8501
+    networks: 
+      AIservice: 
+        aliases: 
+          - frontend.docker
+    depends_on:
+      - backend
+    volumes:
+        - ./frontend:/app
+        - ./storage:/storage
+
+  backend:
+    build: backend
+    ports:
+      - 8000:8000
+    networks: 
+      AIservice: 
+        aliases: 
+          - backend.docker
+    volumes:
+      - ./backend:/app
+      - ./storage:/storage
+  
+  # db:
+  #   build: BDD
+  #   restart: always
+  #   environment:
+  #     POSTGRES_PASSWORD: 123456
+  #     POSTGRES_DB: emotion_db 
+  #     POSTGRES_USER: admin
+  #   ports:
+  #     - 8080:8080
